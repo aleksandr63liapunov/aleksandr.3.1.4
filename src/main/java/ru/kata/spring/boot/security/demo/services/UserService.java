@@ -14,6 +14,8 @@ import ru.kata.spring.boot.security.demo.models.User;
 import ru.kata.spring.boot.security.demo.repositories.RoleRepository;
 import ru.kata.spring.boot.security.demo.repositories.UserRepository;
 
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -62,6 +64,7 @@ public class UserService implements UserDetailsService {
 
     public Set<Role> rolesControl(Long[] idRoles) {
         Set<Role> roleSet = new HashSet<>();
+
         for (Long rID : idRoles) {
             if (rID == 1) {
                 roleSet.add(new Role(1L,"USER"));

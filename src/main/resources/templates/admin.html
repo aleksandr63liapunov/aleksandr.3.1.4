@@ -120,13 +120,17 @@
                                                 <label  class="form-label"><b>Password</b></label>
                                                 <input type="text"  class="form-control" name="password" placeholder="password" required>
                                             </div>
-                                            <div class="mb-3">
-                                                <label ><b>Role</b></label>
-                                                <select multiple class="form-control" name="roles" size="2" required>
-                                                    <option selected="selected" th:value="1" th:text="USER"></option>
-                                                    <option th:value="2" th:text="ADMIN"></option>
+<!--                                                <label ><b>Role</b></label>-->
+<!--                                                <select multiple class="form-control" name="roles" size="2" required>-->
+<!--                                                    <option selected="selected" th:value="1" th:text="USER"></option>-->
+<!--                                                    <option th:value="2" th:text="ADMIN"></option>-->
+<!--                                                </select>-->
+                                                </label>
+                                                <select th:field="*{id}" >
+                                                    <option th:each="role:${roles}" th:value="${roles.id}" th:text="${roles.name}"/>
                                                 </select>
                                             </div>
+
                                             <button type="button" class="btn btn-success" onclick="addSubmit()">Add new user</button>
                                         </div>
                                     </form>
