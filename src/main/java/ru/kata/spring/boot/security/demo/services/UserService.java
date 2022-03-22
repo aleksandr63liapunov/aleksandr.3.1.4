@@ -39,13 +39,13 @@ public class UserService implements UserDetailsService {
         return userRepository.findAll();
     }
 
-    public void addUser(User newUser, Long[] idRoles) {
-        newUser.setRoles(rolesControl(idRoles));
-        userRepository.saveAndFlush(newUser);
+    public void addUser(User newUsers) {
+
+        userRepository.saveAndFlush(newUsers);
     }
 
-    public void updateUser(User updatedUser, Long[] idRoles) {
-        updatedUser.setRoles(rolesControl(idRoles));
+    public void updateUser(User updatedUser) {
+
         userRepository.saveAndFlush(updatedUser);
     }
 
@@ -62,16 +62,4 @@ public class UserService implements UserDetailsService {
         return Set.copyOf(roleRepository.findAll());
     }
 
-    public Set<Role> rolesControl(Long[] idRoles) {
-        Set<Role> roleSet = new HashSet<>();
-
-        for (Long rID : idRoles) {
-            if (rID == 1) {
-                roleSet.add(new Role(1L,"USER"));
-            } else if (rID == 2) {
-                roleSet.add(new Role(2L, "ADMIN"));
-            }
-        }
-        return roleSet;
-    }
 }

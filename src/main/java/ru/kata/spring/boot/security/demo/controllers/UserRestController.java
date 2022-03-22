@@ -42,15 +42,15 @@ public class UserRestController {
     }
 
     @PostMapping("/admin/create")
-    public void createUser(@ModelAttribute User user, @RequestParam("roles") Long[] roles) {
+    public void createUser(@ModelAttribute User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        userService.addUser(user, roles);
+        userService.addUser(user);
     }
 
     @PatchMapping("/edit/{id}")
-    public void updateUser(@ModelAttribute User user, @RequestParam("roles") Long[] roles) {
+    public void updateUser(@ModelAttribute User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        userService.updateUser(user, roles);
+        userService.updateUser(user);
     }
 
     @DeleteMapping("/delete/{id}")
