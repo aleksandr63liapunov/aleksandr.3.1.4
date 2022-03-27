@@ -42,7 +42,8 @@ public class UserRestController {
     }
 
     @PostMapping("/admin/create")
-    public void createUser(@ModelAttribute User user) {
+    public void createUser(@ModelAttribute User user,Role role) {
+        role.getRole();
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userService.addUser(user);
     }

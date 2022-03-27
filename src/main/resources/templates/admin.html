@@ -121,11 +121,13 @@
                                                 <input type="text"  class="form-control" name="password" placeholder="password" required>
                                             </div>
                                             <label><b>Role</b></label>
-                                            <select multiple class="form-control" name="roles" size="2" required>
-                                                <option selected="selected" th:value="1" th:text="USER"></option>
-                                                <option th:value="2" th:text="ADMIN"></option>
-                                            </select>
-                                           
+<!--                                            <select multiple class="form-control" name="roles" size="2" required>-->
+<!--                                                <option selected="selected" th:value="1" th:text="USER"></option>-->
+<!--                                                <option th:value="2" th:text="ADMIN"></option>-->
+<!--                                            </select>-->
+                                            <simple class="text-white">
+                                                <span th:text="${admen.roles}"></span>
+                                            </simple>
 
 
                                             <button type="button" class="btn btn-success" onclick="addSubmit()">Add new user</button>
